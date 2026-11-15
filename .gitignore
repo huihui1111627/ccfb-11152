@@ -16,3 +16,10 @@ node_modules/
 __pycache__/
 .venv/
 venv/
+
+# Rust
+/target/
+
+# 生成的数据（用 `mk gen` 可复现）
+/data/sim/messages/
+/data/sim/derived.json

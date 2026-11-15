@@ -1,0 +1,75 @@
+{
+  "id": "G11",
+  "title": "主买/主卖量统计，方向未知只计入总量",
+  "symbol": "600000.SH",
+  "period": "1m",
+  "trade_date": "2026-03-02",
+  "rules": [
+    "R12"
+  ],
+  "description": "bvol = Σ side=B = 300，svol = Σ side=S = 200，N 方向 100 只计入 v。\n手算：o=h=l=c=10.00 v=600 n=3 bvol=300 svol=200",
+  "messages": [
+    {
+      "ts": "2026-03-02 09:30:10.000",
+      "kind": "trade",
+      "price": 10.0,
+      "volume": 300,
+      "side": "B",
+      "auction": false,
+      "trade_id": "",
+      "ref_trade_id": "",
+      "new_price": null,
+      "new_volume": null,
+      "new_ts": null,
+      "delete": false
+    },
+    {
+      "ts": "2026-03-02 09:30:20.000",
+      "kind": "trade",
+      "price": 10.0,
+      "volume": 200,
+      "side": "S",
+      "auction": false,
+      "trade_id": "",
+      "ref_trade_id": "",
+      "new_price": null,
+      "new_volume": null,
+      "new_ts": null,
+      "delete": false
+    },
+    {
+      "ts": "2026-03-02 09:30:30.000",
+      "kind": "trade",
+      "price": 10.0,
+      "volume": 100,
+      "side": "N",
+      "auction": false,
+      "trade_id": "",
+      "ref_trade_id": "",
+      "new_price": null,
+      "new_volume": null,
+      "new_ts": null,
+      "delete": false
+    }
+  ],
+  "expected": [
+    {
+      "t": 1772443860000,
+      "hm": "09:31",
+      "o": 10.0,
+      "h": 10.0,
+      "l": 10.0,
+      "c": 10.0,
+      "v": 600,
+      "to": 0.0,
+      "n": 3,
+      "bvol": 300,
+      "svol": 200,
+      "av": 0
+    }
+  ],
+  "prev_close": 10.0,
+  "focus": [
+    "09:31"
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "id": "G17",
+  "title": "成交更正只改数量：成交量与笔数按新值",
+  "symbol": "600000.SH",
+  "period": "1m",
+  "trade_date": "2026-03-02",
+  "rules": [
+    "R20",
+    "R21"
+  ],
+  "description": "T1 原为 10.00×100，更正为 10.00×500（价格不变）。\n手算 09:31 bar：o=h=l=c=10.00 v=500 n=1 bvol=500",
+  "messages": [
+    {
+      "ts": "2026-03-02 09:30:10.000",
+      "kind": "trade",
+      "price": 10.0,
+      "volume": 100,
+      "side": "B",
+      "auction": false,
+      "trade_id": "G17-T1",
+      "ref_trade_id": "",
+      "new_price": null,
+      "new_volume": null,
+      "new_ts": null,
+      "delete": false
+    },
+    {
+      "ts": "2026-03-02 09:31:00.000",
+      "kind": "trade_correct",
+      "price": 0.0,
+      "volume": 0,
+      "side": "B",
+      "auction": false,
+      "trade_id": "",
+      "ref_trade_id": "G17-T1",
+      "new_price": null,
+      "new_volume": 500,
+      "new_ts": null,
+      "delete": false
+    }
+  ],
+  "expected": [
+    {
+      "t": 1772443860000,
+      "hm": "09:31",
+      "o": 10.0,
+      "h": 10.0,
+      "l": 10.0,
+      "c": 10.0,
+      "v": 500,
+      "to": 0.0,
+      "n": 1,
+      "bvol": 500,
+      "svol": 0,
+      "av": 0
+    }
+  ],
+  "prev_close": 10.0,
+  "focus": [
+    "09:31"
+  ]
+}

@@ -1,0 +1,17 @@
+[package]
+name = "mk-app"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[dependencies]
+mk-core.workspace = true
+mk-engine.workspace = true
+mk-sim.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+anyhow.workspace = true
+chrono.workspace = true
+
+[dev-dependencies]
+mk-sim.workspace = true

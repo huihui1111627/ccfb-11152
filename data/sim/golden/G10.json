@@ -1,0 +1,76 @@
+{
+  "id": "G10",
+  "title": "中间分钟无成交：omit 策略下不生成 09:32 bar",
+  "symbol": "600000.SH",
+  "period": "1m",
+  "trade_date": "2026-03-02",
+  "rules": [
+    "R11"
+  ],
+  "description": "09:32 无任何成交。omit 策略下不生成该 bar（与多数行情软件一致）；\n5m 由 1m 聚合，09:35 bar 应包含两笔成交、v=200。\n手算：09:35 bar o=10.00 h=10.02 l=10.00 c=10.02 v=200 n=2",
+  "messages": [
+    {
+      "ts": "2026-03-02 09:31:00.000",
+      "kind": "trade",
+      "price": 10.0,
+      "volume": 100,
+      "side": "B",
+      "auction": false,
+      "trade_id": "",
+      "ref_trade_id": "",
+      "new_price": null,
+      "new_volume": null,
+      "new_ts": null,
+      "delete": false
+    },
+    {
+      "ts": "2026-03-02 09:33:00.000",
+      "kind": "trade",
+      "price": 10.02,
+      "volume": 100,
+      "side": "B",
+      "auction": false,
+      "trade_id": "",
+      "ref_trade_id": "",
+      "new_price": null,
+      "new_volume": null,
+      "new_ts": null,
+      "delete": false
+    }
+  ],
+  "expected": [
+    {
+      "t": 1772443860000,
+      "hm": "09:31",
+      "o": 10.0,
+      "h": 10.0,
+      "l": 10.0,
+      "c": 10.0,
+      "v": 100,
+      "to": 0.0,
+      "n": 1,
+      "bvol": 100,
+      "svol": 0,
+      "av": 0
+    },
+    {
+      "t": 1772443980000,
+      "hm": "09:33",
+      "o": 10.02,
+      "h": 10.02,
+      "l": 10.02,
+      "c": 10.02,
+      "v": 100,
+      "to": 0.0,
+      "n": 1,
+      "bvol": 100,
+      "svol": 0,
+      "av": 0
+    }
+  ],
+  "prev_close": 10.0,
+  "focus": [
+    "09:31",
+    "09:33"
+  ]
+}

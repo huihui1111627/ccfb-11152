@@ -1,0 +1,75 @@
+{
+  "id": "G16",
+  "title": "唯一成交被撤销后该分钟 bar 消失",
+  "symbol": "600000.SH",
+  "period": "1m",
+  "trade_date": "2026-03-02",
+  "rules": [
+    "R21"
+  ],
+  "description": "09:31 bar 只有一笔成交 T1，被撤销后有效成交数为 0。\n按 R21，该 1 分钟 bar 应被移除（不生成空 bar）。\n本用例只校验 09:31 bar 不存在；另加一笔 10:00 成交以确认其它 bar 正常。",
+  "messages": [
+    {
+      "ts": "2026-03-02 09:30:10.000",
+      "kind": "trade",
+      "price": 10.0,
+      "volume": 100,
+      "side": "B",
+      "auction": false,
+      "trade_id": "G16-T1",
+      "ref_trade_id": "",
+      "new_price": null,
+      "new_volume": null,
+      "new_ts": null,
+      "delete": false
+    },
+    {
+      "ts": "2026-03-02 09:45:00.000",
+      "kind": "trade_cancel",
+      "price": 0.0,
+      "volume": 0,
+      "side": "B",
+      "auction": false,
+      "trade_id": "",
+      "ref_trade_id": "G16-T1",
+      "new_price": null,
+      "new_volume": null,
+      "new_ts": null,
+      "delete": false
+    },
+    {
+      "ts": "2026-03-02 10:00:00.000",
+      "kind": "trade",
+      "price": 10.01,
+      "volume": 200,
+      "side": "B",
+      "auction": false,
+      "trade_id": "",
+      "ref_trade_id": "",
+      "new_price": null,
+      "new_volume": null,
+      "new_ts": null,
+      "delete": false
+    }
+  ],
+  "expected": [
+    {
+      "t": 1772445600000,
+      "hm": "10:00",
+      "o": 10.01,
+      "h": 10.01,
+      "l": 10.01,
+      "c": 10.01,
+      "v": 200,
+      "to": 0.0,
+      "n": 1,
+      "bvol": 200,
+      "svol": 0,
+      "av": 0
+    }
+  ],
+  "prev_close": 10.0,
+  "focus": [
+    "10:00"
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "id": "G04",
+  "title": "收盘集合竞价成交并入 15:00 bar",
+  "symbol": "600000.SH",
+  "period": "1m",
+  "trade_date": "2026-03-02",
+  "rules": [
+    "R04"
+  ],
+  "description": "14:57–15:00 为收盘集合竞价，撮合于 15:00:00.000，只允许竞价成交。\n14:56:00 的连续成交属于 14:57 bar（(14:56,14:57]）。\n15:00 bar 是竞价专用窗口，只接收 15:00:00.000 的竞价成交。\n手算 15:00 bar：o=h=l=c=10.25 v=3000 n=1 av=3000",
+  "messages": [
+    {
+      "ts": "2026-03-02 14:56:00.000",
+      "kind": "trade",
+      "price": 10.2,
+      "volume": 100,
+      "side": "B",
+      "auction": false,
+      "trade_id": "",
+      "ref_trade_id": "",
+      "new_price": null,
+      "new_volume": null,
+      "new_ts": null,
+      "delete": false
+    },
+    {
+      "ts": "2026-03-02 15:00:00.000",
+      "kind": "trade",
+      "price": 10.25,
+      "volume": 3000,
+      "side": "B",
+      "auction": true,
+      "trade_id": "",
+      "ref_trade_id": "",
+      "new_price": null,
+      "new_volume": null,
+      "new_ts": null,
+      "delete": false
+    }
+  ],
+  "expected": [
+    {
+      "t": 1772463600000,
+      "hm": "15:00",
+      "o": 10.25,
+      "h": 10.25,
+      "l": 10.25,
+      "c": 10.25,
+      "v": 3000,
+      "to": 0.0,
+      "n": 1,
+      "bvol": 3000,
+      "svol": 0,
+      "av": 3000
+    }
+  ],
+  "prev_close": 10.0,
+  "focus": [
+    "15:00"
+  ]
+}

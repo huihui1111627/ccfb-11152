@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>行情加工与核对 · MarketKit</title>
+<link rel="stylesheet" href="/assets/app.css">
+</head>
+<body>
+<div id="app">
+  <header class="topbar">
+    <div class="brand">
+      <span class="logo">MK</span>
+      <span class="brand-name">行情加工与核对</span>
+      <span class="dataset" id="dataset-name">loading…</span>
+    </div>
+    <nav class="tabs" id="tabs">
+      <button data-view="replay" class="tab active">行情回放</button>
+      <button data-view="bars" class="tab">K 线查询</button>
+      <button data-view="factors" class="tab">复权因子</button>
+      <button data-view="reconcile" class="tab">数据核对</button>
+      <button data-view="anomalies" class="tab">异常日志</button>
+      <button data-view="sources" class="tab">多源/连续</button>
+    </nav>
+    <div class="toolbar">
+      <select id="symbol-select" class="ctl"></select>
+      <select id="date-select" class="ctl"></select>
+      <span class="conn" id="conn-status" title="服务状态"></span>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="view" id="view-replay"></section>
+    <section class="view" id="view-bars" hidden></section>
+    <section class="view" id="view-factors" hidden></section>
+    <section class="view" id="view-reconcile" hidden></section>
+    <section class="view" id="view-anomalies" hidden></section>
+    <section class="view" id="view-sources" hidden></section>
+  </main>
+
+  <footer class="footer">
+    <span id="footer-left">引擎 v0.1.0</span>
+    <span id="footer-right"></span>
+  </footer>
+</div>
+<script src="/assets/chart.js"></script>
+<script src="/assets/app.js"></script>
+</body>
+</html>

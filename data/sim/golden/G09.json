@@ -1,0 +1,61 @@
+{
+  "id": "G09",
+  "title": "废单逐笔冲正该委托下的成交",
+  "symbol": "600000.SH",
+  "period": "1m",
+  "trade_date": "2026-03-02",
+  "rules": [
+    "R20"
+  ],
+  "description": "委托被判废单后，其已成交部分需逐笔冲正。\n注意本用例的废单消息没有 order_id 关联，引擎按 trade_id 前缀无法关联时\n应当保留成交并在异常日志中记录（这是预期行为，见用例 G12 的对照）。",
+  "messages": [
+    {
+      "ts": "2026-03-02 09:30:10.000",
+      "kind": "trade",
+      "price": 10.0,
+      "volume": 100,
+      "side": "B",
+      "auction": false,
+      "trade_id": "G09-T1",
+      "ref_trade_id": "",
+      "new_price": null,
+      "new_volume": null,
+      "new_ts": null,
+      "delete": false
+    },
+    {
+      "ts": "2026-03-02 09:31:00.000",
+      "kind": "order_reject",
+      "price": 0.0,
+      "volume": 0,
+      "side": "B",
+      "auction": false,
+      "trade_id": "",
+      "ref_trade_id": "",
+      "new_price": null,
+      "new_volume": null,
+      "new_ts": null,
+      "delete": false
+    }
+  ],
+  "expected": [
+    {
+      "t": 1772443860000,
+      "hm": "09:31",
+      "o": 10.0,
+      "h": 10.0,
+      "l": 10.0,
+      "c": 10.0,
+      "v": 100,
+      "to": 0.0,
+      "n": 1,
+      "bvol": 100,
+      "svol": 0,
+      "av": 0
+    }
+  ],
+  "prev_close": 10.0,
+  "focus": [
+    "09:31"
+  ]
+}

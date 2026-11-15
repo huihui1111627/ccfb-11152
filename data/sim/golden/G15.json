@@ -1,0 +1,90 @@
+{
+  "id": "G15",
+  "title": "15m 首根同时含开盘竞价与连续成交",
+  "symbol": "600000.SH",
+  "period": "15m",
+  "trade_date": "2026-03-02",
+  "rules": [
+    "R04",
+    "R10"
+  ],
+  "description": "15m 首根窗口 (09:30,09:45]（首根左闭，即 [09:30,09:45]），\n涵盖 1m 的 09:30（竞价）…09:45。09:45:00.000 是右端点，属于本根。\n手算首根（标签 09:45）：\n- 竞价 9.95×1200（av=1200）、9.98×100、10.02×200、10.05×300\n- v=1800 n=4 o=9.95 h=10.05 l=9.95 c=10.05",
+  "messages": [
+    {
+      "ts": "2026-03-02 09:25:00.000",
+      "kind": "trade",
+      "price": 9.95,
+      "volume": 1200,
+      "side": "B",
+      "auction": true,
+      "trade_id": "",
+      "ref_trade_id": "",
+      "new_price": null,
+      "new_volume": null,
+      "new_ts": null,
+      "delete": false
+    },
+    {
+      "ts": "2026-03-02 09:30:10.000",
+      "kind": "trade",
+      "price": 9.98,
+      "volume": 100,
+      "side": "B",
+      "auction": false,
+      "trade_id": "",
+      "ref_trade_id": "",
+      "new_price": null,
+      "new_volume": null,
+      "new_ts": null,
+      "delete": false
+    },
+    {
+      "ts": "2026-03-02 09:44:59.000",
+      "kind": "trade",
+      "price": 10.02,
+      "volume": 200,
+      "side": "B",
+      "auction": false,
+      "trade_id": "",
+      "ref_trade_id": "",
+      "new_price": null,
+      "new_volume": null,
+      "new_ts": null,
+      "delete": false
+    },
+    {
+      "ts": "2026-03-02 09:45:00.000",
+      "kind": "trade",
+      "price": 10.05,
+      "volume": 300,
+      "side": "B",
+      "auction": false,
+      "trade_id": "",
+      "ref_trade_id": "",
+      "new_price": null,
+      "new_volume": null,
+      "new_ts": null,
+      "delete": false
+    }
+  ],
+  "expected": [
+    {
+      "t": 1772444700000,
+      "hm": "09:45",
+      "o": 9.95,
+      "h": 10.05,
+      "l": 9.95,
+      "c": 10.05,
+      "v": 1800,
+      "to": 0.0,
+      "n": 4,
+      "bvol": 1800,
+      "svol": 0,
+      "av": 1200
+    }
+  ],
+  "prev_close": 9.9,
+  "focus": [
+    "09:45"
+  ]
+}

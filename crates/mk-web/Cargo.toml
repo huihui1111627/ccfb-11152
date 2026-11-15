@@ -1,0 +1,28 @@
+[package]
+name = "mk-web"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[[bin]]
+name = "mkd"
+path = "src/main.rs"
+
+[dependencies]
+mk-core.workspace = true
+mk-engine.workspace = true
+mk-sim.workspace = true
+mk-app.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+anyhow.workspace = true
+clap.workspace = true
+chrono.workspace = true
+tracing.workspace = true
+tracing-subscriber.workspace = true
+tokio = { version = "1", features = ["full"] }
+axum = "0.8"
+tower-http = { version = "0.6", features = ["fs", "cors", "trace"] }
+
+[dev-dependencies]
+reqwest = { version = "0.12", features = ["json", "blocking"] }

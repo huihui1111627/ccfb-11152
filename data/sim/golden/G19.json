@@ -1,0 +1,62 @@
+{
+  "id": "G19",
+  "title": "夜盘两笔跨过自然日零点仍归同一交易日",
+  "symbol": "rb2601",
+  "period": "1d",
+  "trade_date": "2026-03-03",
+  "rules": [
+    "R03",
+    "R15"
+  ],
+  "description": "2026-03-02（周一）21:00 与 22:59:59 都属于交易日 2026-03-03。\n日线 open = 夜盘首根 21:01 的 open（520），close = 日盘最后成交。\n本用例只验证日线聚合到了 03-03，且 open 来自夜盘。\n手算：o=520 h=521 l=520 c=521 v=20 n=2",
+  "messages": [
+    {
+      "ts": "2026-03-02 21:00:30.000",
+      "kind": "trade",
+      "price": 520.0,
+      "volume": 10,
+      "side": "B",
+      "auction": false,
+      "trade_id": "",
+      "ref_trade_id": "",
+      "new_price": null,
+      "new_volume": null,
+      "new_ts": null,
+      "delete": false
+    },
+    {
+      "ts": "2026-03-02 22:59:59.000",
+      "kind": "trade",
+      "price": 521.0,
+      "volume": 10,
+      "side": "B",
+      "auction": false,
+      "trade_id": "",
+      "ref_trade_id": "",
+      "new_price": null,
+      "new_volume": null,
+      "new_ts": null,
+      "delete": false
+    }
+  ],
+  "expected": [
+    {
+      "t": 1772550000000,
+      "hm": "15:00",
+      "o": 520.0,
+      "h": 521.0,
+      "l": 520.0,
+      "c": 521.0,
+      "v": 20,
+      "to": 0.0,
+      "n": 2,
+      "bvol": 20,
+      "svol": 0,
+      "av": 0
+    }
+  ],
+  "prev_close": 519.0,
+  "focus": [
+    "15:00"
+  ]
+}

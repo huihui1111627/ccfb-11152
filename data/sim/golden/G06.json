@@ -1,0 +1,91 @@
+{
+  "id": "G06",
+  "title": "成交更正：价格/数量/时间同时修改，跨 bar 迁移",
+  "symbol": "600000.SH",
+  "period": "1m",
+  "trade_date": "2026-03-02",
+  "rules": [
+    "R20",
+    "R21"
+  ],
+  "description": "T1 原为 09:30:10（属于 09:31 bar）的 10.02×200，更正为 09:32:10（属于 09:33 bar）的 10.09×400。\nT2 在 09:30:20，也属于 09:31 bar。更正后 09:31 bar 只剩 T2。\n手算：\n- 09:31 bar 只剩 T2 → o=h=l=c=10.04 v=100 n=1\n- 09:33 bar 只有更正后的 T1 → o=h=l=c=10.09 v=400 n=1\n更正**跨 bar**，因此引擎必须在两个 bar 上同时生效（冲正 + 重新计入）。",
+  "messages": [
+    {
+      "ts": "2026-03-02 09:30:10.000",
+      "kind": "trade",
+      "price": 10.02,
+      "volume": 200,
+      "side": "B",
+      "auction": false,
+      "trade_id": "G06-T1",
+      "ref_trade_id": "",
+      "new_price": null,
+      "new_volume": null,
+      "new_ts": null,
+      "delete": false
+    },
+    {
+      "ts": "2026-03-02 09:30:20.000",
+      "kind": "trade",
+      "price": 10.04,
+      "volume": 100,
+      "side": "B",
+      "auction": false,
+      "trade_id": "G06-T2",
+      "ref_trade_id": "",
+      "new_price": null,
+      "new_volume": null,
+      "new_ts": null,
+      "delete": false
+    },
+    {
+      "ts": "2026-03-02 09:32:30.000",
+      "kind": "trade_correct",
+      "price": 0.0,
+      "volume": 0,
+      "side": "B",
+      "auction": false,
+      "trade_id": "",
+      "ref_trade_id": "G06-T1",
+      "new_price": 10.09,
+      "new_volume": 400,
+      "new_ts": "2026-03-02 09:32:10.000",
+      "delete": false
+    }
+  ],
+  "expected": [
+    {
+      "t": 1772443860000,
+      "hm": "09:31",
+      "o": 10.04,
+      "h": 10.04,
+      "l": 10.04,
+      "c": 10.04,
+      "v": 100,
+      "to": 0.0,
+      "n": 1,
+      "bvol": 100,
+      "svol": 0,
+      "av": 0
+    },
+    {
+      "t": 1772443980000,
+      "hm": "09:33",
+      "o": 10.09,
+      "h": 10.09,
+      "l": 10.09,
+      "c": 10.09,
+      "v": 400,
+      "to": 0.0,
+      "n": 1,
+      "bvol": 400,
+      "svol": 0,
+      "av": 0
+    }
+  ],
+  "prev_close": 10.0,
+  "focus": [
+    "09:31",
+    "09:33"
+  ]
+}

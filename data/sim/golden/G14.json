@@ -1,0 +1,62 @@
+{
+  "id": "G14",
+  "title": "跌停价成交是合法成交（不应被 limit_breach 隔离）",
+  "symbol": "600000.SH",
+  "period": "1m",
+  "trade_date": "2026-03-02",
+  "rules": [
+    "R40",
+    "R41"
+  ],
+  "description": "昨收 10.00，跌停价 9.00（10%）。跌停价成交完全合法，且**当日首笔跳空到跌停也是合法行情**。\n因此 R41 规定：当日首笔成交不施加 jump_pct 判定（只做涨跌停区间校验），\n否则任何一字跌停开盘都会被误判为 price_jump 并隔离。\nlimit_breach 只在 p < 跌停价 或 p > 涨停价 时触发，闭区间包含边界。\n两笔都在 09:30:xx，属于 09:31 bar。\n手算：09:31 bar o=h=l=c=9.00 v=1500 n=2",
+  "messages": [
+    {
+      "ts": "2026-03-02 09:30:10.000",
+      "kind": "trade",
+      "price": 9.0,
+      "volume": 1000,
+      "side": "B",
+      "auction": false,
+      "trade_id": "",
+      "ref_trade_id": "",
+      "new_price": null,
+      "new_volume": null,
+      "new_ts": null,
+      "delete": false
+    },
+    {
+      "ts": "2026-03-02 09:30:20.000",
+      "kind": "trade",
+      "price": 9.0,
+      "volume": 500,
+      "side": "B",
+      "auction": false,
+      "trade_id": "",
+      "ref_trade_id": "",
+      "new_price": null,
+      "new_volume": null,
+      "new_ts": null,
+      "delete": false
+    }
+  ],
+  "expected": [
+    {
+      "t": 1772443860000,
+      "hm": "09:31",
+      "o": 9.0,
+      "h": 9.0,
+      "l": 9.0,
+      "c": 9.0,
+      "v": 1500,
+      "to": 0.0,
+      "n": 2,
+      "bvol": 1500,
+      "svol": 0,
+      "av": 0
+    }
+  ],
+  "prev_close": 10.0,
+  "focus": [
+    "09:31"
+  ]
+}

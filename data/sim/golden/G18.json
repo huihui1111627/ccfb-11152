@@ -1,0 +1,119 @@
+{
+  "id": "G18",
+  "title": "期货 30m 残 bar：(10:00,10:15] 是 15 分钟残 bar",
+  "symbol": "rb2601",
+  "period": "30m",
+  "trade_date": "2026-03-03",
+  "rules": [
+    "R10"
+  ],
+  "description": "第一节 09:00–10:15 共 75 分钟 = 2 个 30m + 1 个 15m 残 bar。\n30m 网格锚定段首：(09:00,09:30]、(09:30,10:00]、(10:00,10:15]（残）。\n各笔：09:29:10→09:30 bar；09:44:10→10:00 bar；09:59:10→10:00 bar；10:14:10→10:15 bar。\n手算 09:30 bar：o=h=l=c=3500 v=5 n=1\n手算 10:00 bar：09:44:10 与 09:59:10 → o=3510 h=3520 l=3510 c=3520 v=10 n=2\n手算 10:15 bar：10:14:10 → o=h=l=c=3530 v=5 n=1",
+  "messages": [
+    {
+      "ts": "2026-03-03 09:29:10",
+      "kind": "trade",
+      "price": 3500.0,
+      "volume": 5,
+      "side": "B",
+      "auction": false,
+      "trade_id": "",
+      "ref_trade_id": "",
+      "new_price": null,
+      "new_volume": null,
+      "new_ts": null,
+      "delete": false
+    },
+    {
+      "ts": "2026-03-03 09:44:10",
+      "kind": "trade",
+      "price": 3510.0,
+      "volume": 5,
+      "side": "B",
+      "auction": false,
+      "trade_id": "",
+      "ref_trade_id": "",
+      "new_price": null,
+      "new_volume": null,
+      "new_ts": null,
+      "delete": false
+    },
+    {
+      "ts": "2026-03-03 09:59:10",
+      "kind": "trade",
+      "price": 3520.0,
+      "volume": 5,
+      "side": "B",
+      "auction": false,
+      "trade_id": "",
+      "ref_trade_id": "",
+      "new_price": null,
+      "new_volume": null,
+      "new_ts": null,
+      "delete": false
+    },
+    {
+      "ts": "2026-03-03 10:14:10",
+      "kind": "trade",
+      "price": 3530.0,
+      "volume": 5,
+      "side": "B",
+      "auction": false,
+      "trade_id": "",
+      "ref_trade_id": "",
+      "new_price": null,
+      "new_volume": null,
+      "new_ts": null,
+      "delete": false
+    }
+  ],
+  "expected": [
+    {
+      "t": 1772530200000,
+      "hm": "09:30",
+      "o": 3500.0,
+      "h": 3500.0,
+      "l": 3500.0,
+      "c": 3500.0,
+      "v": 5,
+      "to": 0.0,
+      "n": 1,
+      "bvol": 5,
+      "svol": 0,
+      "av": 0
+    },
+    {
+      "t": 1772532000000,
+      "hm": "10:00",
+      "o": 3510.0,
+      "h": 3520.0,
+      "l": 3510.0,
+      "c": 3520.0,
+      "v": 10,
+      "to": 0.0,
+      "n": 2,
+      "bvol": 10,
+      "svol": 0,
+      "av": 0
+    },
+    {
+      "t": 1772532900000,
+      "hm": "10:15",
+      "o": 3530.0,
+      "h": 3530.0,
+      "l": 3530.0,
+      "c": 3530.0,
+      "v": 5,
+      "to": 0.0,
+      "n": 1,
+      "bvol": 5,
+      "svol": 0,
+      "av": 0
+    }
+  ],
+  "prev_close": 3490.0,
+  "focus": [
+    "09:30",
+    "10:00",
+    "10:15"
+  ]
+}

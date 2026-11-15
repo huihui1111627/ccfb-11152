@@ -1,0 +1,104 @@
+{
+  "id": "G01",
+  "title": "1m 左开右闭：09:31:00.000 归 09:31 bar，09:31:00.001 归 09:32 bar",
+  "symbol": "600000.SH",
+  "period": "1m",
+  "trade_date": "2026-03-02",
+  "rules": [
+    "R10"
+  ],
+  "description": "09:31 bar 的窗口是 [09:30:00.000, 09:31:00.000]（段首左闭），09:32 bar 是 (09:31:00.000, 09:32:00.000]。\n所以 09:31:00.000 属于 09:31，09:31:00.001 属于 09:32。\n手算：\n- 09:31 bar: 10.00×100、10.01×200 → o=10.00 h=10.01 l=10.00 c=10.01 v=300 n=2\n- 09:32 bar: 10.02×300、10.03×400 → o=10.02 h=10.03 l=10.02 c=10.03 v=700 n=2",
+  "messages": [
+    {
+      "ts": "2026-03-02 09:30:00.000",
+      "kind": "trade",
+      "price": 10.0,
+      "volume": 100,
+      "side": "B",
+      "auction": false,
+      "trade_id": "",
+      "ref_trade_id": "",
+      "new_price": null,
+      "new_volume": null,
+      "new_ts": null,
+      "delete": false
+    },
+    {
+      "ts": "2026-03-02 09:31:00.000",
+      "kind": "trade",
+      "price": 10.01,
+      "volume": 200,
+      "side": "B",
+      "auction": false,
+      "trade_id": "",
+      "ref_trade_id": "",
+      "new_price": null,
+      "new_volume": null,
+      "new_ts": null,
+      "delete": false
+    },
+    {
+      "ts": "2026-03-02 09:31:00.001",
+      "kind": "trade",
+      "price": 10.02,
+      "volume": 300,
+      "side": "B",
+      "auction": false,
+      "trade_id": "",
+      "ref_trade_id": "",
+      "new_price": null,
+      "new_volume": null,
+      "new_ts": null,
+      "delete": false
+    },
+    {
+      "ts": "2026-03-02 09:32:00.000",
+      "kind": "trade",
+      "price": 10.03,
+      "volume": 400,
+      "side": "B",
+      "auction": false,
+      "trade_id": "",
+      "ref_trade_id": "",
+      "new_price": null,
+      "new_volume": null,
+      "new_ts": null,
+      "delete": false
+    }
+  ],
+  "expected": [
+    {
+      "t": 1772443860000,
+      "hm": "09:31",
+      "o": 10.0,
+      "h": 10.01,
+      "l": 10.0,
+      "c": 10.01,
+      "v": 300,
+      "to": 0.0,
+      "n": 2,
+      "bvol": 300,
+      "svol": 0,
+      "av": 0
+    },
+    {
+      "t": 1772443920000,
+      "hm": "09:32",
+      "o": 10.02,
+      "h": 10.03,
+      "l": 10.02,
+      "c": 10.03,
+      "v": 700,
+      "to": 0.0,
+      "n": 2,
+      "bvol": 700,
+      "svol": 0,
+      "av": 0
+    }
+  ],
+  "prev_close": 10.0,
+  "focus": [
+    "09:31",
+    "09:32"
+  ]
+}

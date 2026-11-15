@@ -1,0 +1,90 @@
+{
+  "id": "G05",
+  "title": "撤销成交：量额笔数扣除 + 按剩余成交重算 OHLC",
+  "symbol": "600000.SH",
+  "period": "1m",
+  "trade_date": "2026-03-02",
+  "rules": [
+    "R20",
+    "R21"
+  ],
+  "description": "09:31 bar 内三笔成交，其中 T2（10.06×300）被撤销。\n手算：剩余 T1 10.00×100、T3 10.01×200\n→ o=10.00 h=10.01 l=10.00 c=10.01 v=300 n=2，cv=300\n注意 high 必须从 10.06 回落到 10.01（重算而非保留）。",
+  "messages": [
+    {
+      "ts": "2026-03-02 09:30:10.000",
+      "kind": "trade",
+      "price": 10.0,
+      "volume": 100,
+      "side": "B",
+      "auction": false,
+      "trade_id": "G05-T1",
+      "ref_trade_id": "",
+      "new_price": null,
+      "new_volume": null,
+      "new_ts": null,
+      "delete": false
+    },
+    {
+      "ts": "2026-03-02 09:30:20.000",
+      "kind": "trade",
+      "price": 10.06,
+      "volume": 300,
+      "side": "B",
+      "auction": false,
+      "trade_id": "G05-T2",
+      "ref_trade_id": "",
+      "new_price": null,
+      "new_volume": null,
+      "new_ts": null,
+      "delete": false
+    },
+    {
+      "ts": "2026-03-02 09:30:30.000",
+      "kind": "trade",
+      "price": 10.01,
+      "volume": 200,
+      "side": "B",
+      "auction": false,
+      "trade_id": "G05-T3",
+      "ref_trade_id": "",
+      "new_price": null,
+      "new_volume": null,
+      "new_ts": null,
+      "delete": false
+    },
+    {
+      "ts": "2026-03-02 09:31:05.000",
+      "kind": "trade_cancel",
+      "price": 0.0,
+      "volume": 0,
+      "side": "B",
+      "auction": false,
+      "trade_id": "",
+      "ref_trade_id": "G05-T2",
+      "new_price": null,
+      "new_volume": null,
+      "new_ts": null,
+      "delete": false
+    }
+  ],
+  "expected": [
+    {
+      "t": 1772443860000,
+      "hm": "09:31",
+      "o": 10.0,
+      "h": 10.01,
+      "l": 10.0,
+      "c": 10.01,
+      "v": 300,
+      "to": 0.0,
+      "n": 2,
+      "bvol": 300,
+      "svol": 0,
+      "av": 0
+    }
+  ],
+  "prev_close": 10.0,
+  "focus": [
+    "09:31"
+  ]
+}

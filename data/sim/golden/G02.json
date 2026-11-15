@@ -1,0 +1,91 @@
+{
+  "id": "G02",
+  "title": "开盘集合竞价单独成 09:30 bar，并入 5m 首根",
+  "symbol": "600000.SH",
+  "period": "1m",
+  "trade_date": "2026-03-02",
+  "rules": [
+    "R04",
+    "R10"
+  ],
+  "description": "09:15–09:25 集合竞价在 09:25:00.000 撮合，成交价 9.98、量 5000。\n按 R04，A 股开盘竞价单独成一根 1m bar，标签 09:30，flags=auction，av=5000。\n09:30:00.500 与 09:30:59.000 属于 09:31 bar（窗口 [09:30:00.000, 09:31:00.000]）。\n手算：\n- 09:30 bar: o=h=l=c=9.98 v=5000 n=1 av=5000\n- 09:31 bar: o=10.00 h=10.02 l=10.00 c=10.02 v=300 n=2",
+  "messages": [
+    {
+      "ts": "2026-03-02 09:25:00.000",
+      "kind": "trade",
+      "price": 9.98,
+      "volume": 5000,
+      "side": "B",
+      "auction": true,
+      "trade_id": "",
+      "ref_trade_id": "",
+      "new_price": null,
+      "new_volume": null,
+      "new_ts": null,
+      "delete": false
+    },
+    {
+      "ts": "2026-03-02 09:30:00.500",
+      "kind": "trade",
+      "price": 10.0,
+      "volume": 100,
+      "side": "B",
+      "auction": false,
+      "trade_id": "",
+      "ref_trade_id": "",
+      "new_price": null,
+      "new_volume": null,
+      "new_ts": null,
+      "delete": false
+    },
+    {
+      "ts": "2026-03-02 09:30:59.000",
+      "kind": "trade",
+      "price": 10.02,
+      "volume": 200,
+      "side": "B",
+      "auction": false,
+      "trade_id": "",
+      "ref_trade_id": "",
+      "new_price": null,
+      "new_volume": null,
+      "new_ts": null,
+      "delete": false
+    }
+  ],
+  "expected": [
+    {
+      "t": 1772443800000,
+      "hm": "09:30",
+      "o": 9.98,
+      "h": 9.98,
+      "l": 9.98,
+      "c": 9.98,
+      "v": 5000,
+      "to": 0.0,
+      "n": 1,
+      "bvol": 5000,
+      "svol": 0,
+      "av": 5000
+    },
+    {
+      "t": 1772443860000,
+      "hm": "09:31",
+      "o": 10.0,
+      "h": 10.02,
+      "l": 10.0,
+      "c": 10.02,
+      "v": 300,
+      "to": 0.0,
+      "n": 2,
+      "bvol": 300,
+      "svol": 0,
+      "av": 0
+    }
+  ],
+  "prev_close": 10.0,
+  "focus": [
+    "09:30",
+    "09:31"
+  ]
+}

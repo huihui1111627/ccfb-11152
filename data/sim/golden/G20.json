@@ -1,0 +1,61 @@
+{
+  "id": "G20",
+  "title": "方向未知的成交只计入总量",
+  "symbol": "600000.SH",
+  "period": "1m",
+  "trade_date": "2026-03-02",
+  "rules": [
+    "R12"
+  ],
+  "description": "两笔 side=N 的成交：全部计入 v，但 bvol=svol=0。\n手算：o=10.00 h=10.01 l=10.00 c=10.01 v=700 n=2 bvol=0 svol=0",
+  "messages": [
+    {
+      "ts": "2026-03-02 09:30:10.000",
+      "kind": "trade",
+      "price": 10.0,
+      "volume": 300,
+      "side": "N",
+      "auction": false,
+      "trade_id": "",
+      "ref_trade_id": "",
+      "new_price": null,
+      "new_volume": null,
+      "new_ts": null,
+      "delete": false
+    },
+    {
+      "ts": "2026-03-02 09:30:20.000",
+      "kind": "trade",
+      "price": 10.01,
+      "volume": 400,
+      "side": "N",
+      "auction": false,
+      "trade_id": "",
+      "ref_trade_id": "",
+      "new_price": null,
+      "new_volume": null,
+      "new_ts": null,
+      "delete": false
+    }
+  ],
+  "expected": [
+    {
+      "t": 1772443860000,
+      "hm": "09:31",
+      "o": 10.0,
+      "h": 10.01,
+      "l": 10.0,
+      "c": 10.01,
+      "v": 700,
+      "to": 0.0,
+      "n": 2,
+      "bvol": 0,
+      "svol": 0,
+      "av": 0
+    }
+  ],
+  "prev_close": 10.0,
+  "focus": [
+    "09:31"
+  ]
+}

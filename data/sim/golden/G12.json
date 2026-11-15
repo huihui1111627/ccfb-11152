@@ -1,0 +1,103 @@
+{
+  "id": "G12",
+  "title": "日线 OHLC 与总量：含开盘/收盘集合竞价",
+  "symbol": "600000.SH",
+  "period": "1d",
+  "trade_date": "2026-03-02",
+  "rules": [
+    "R15"
+  ],
+  "description": "日线 open 取当日第一根 1m bar 的 open（09:30 竞价 bar 的 10.00），\nclose 取最后一根（15:00 bar 的 10.20），high/low 取全天极值。\n手算：o=10.00 h=10.20 l=10.00 c=10.20 v=2400 n=5 av=1500",
+  "messages": [
+    {
+      "ts": "2026-03-02 09:25:00.000",
+      "kind": "trade",
+      "price": 10.0,
+      "volume": 1000,
+      "side": "B",
+      "auction": true,
+      "trade_id": "",
+      "ref_trade_id": "",
+      "new_price": null,
+      "new_volume": null,
+      "new_ts": null,
+      "delete": false
+    },
+    {
+      "ts": "2026-03-02 09:31:00.000",
+      "kind": "trade",
+      "price": 10.05,
+      "volume": 200,
+      "side": "B",
+      "auction": false,
+      "trade_id": "",
+      "ref_trade_id": "",
+      "new_price": null,
+      "new_volume": null,
+      "new_ts": null,
+      "delete": false
+    },
+    {
+      "ts": "2026-03-02 11:30:00.000",
+      "kind": "trade",
+      "price": 10.1,
+      "volume": 300,
+      "side": "B",
+      "auction": false,
+      "trade_id": "",
+      "ref_trade_id": "",
+      "new_price": null,
+      "new_volume": null,
+      "new_ts": null,
+      "delete": false
+    },
+    {
+      "ts": "2026-03-02 13:01:00.000",
+      "kind": "trade",
+      "price": 10.02,
+      "volume": 400,
+      "side": "B",
+      "auction": false,
+      "trade_id": "",
+      "ref_trade_id": "",
+      "new_price": null,
+      "new_volume": null,
+      "new_ts": null,
+      "delete": false
+    },
+    {
+      "ts": "2026-03-02 15:00:00.000",
+      "kind": "trade",
+      "price": 10.2,
+      "volume": 500,
+      "side": "B",
+      "auction": true,
+      "trade_id": "",
+      "ref_trade_id": "",
+      "new_price": null,
+      "new_volume": null,
+      "new_ts": null,
+      "delete": false
+    }
+  ],
+  "expected": [
+    {
+      "t": 1772463600000,
+      "hm": "15:00",
+      "o": 10.0,
+      "h": 10.2,
+      "l": 10.0,
+      "c": 10.2,
+      "v": 2400,
+      "to": 0.0,
+      "n": 5,
+      "bvol": 2400,
+      "svol": 0,
+      "av": 1500
+    }
+  ],
+  "prev_close": 9.95,
+  "focus": [
+    "15:00"
+  ]
+}

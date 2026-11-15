@@ -1,0 +1,105 @@
+{
+  "id": "G08",
+  "title": "夜盘归属下一交易日，集合竞价并入 21:01 bar",
+  "symbol": "rb2601",
+  "period": "1m",
+  "trade_date": "2026-03-03",
+  "rules": [
+    "R03",
+    "R04"
+  ],
+  "description": "2026-03-02 21:00 属于交易日 2026-03-03（周二）。\n期货集合竞价 21:00:00.000 不单独成 bar，并入段首 21:01 bar（段首左闭）。\n手算：\n- 21:01 bar（窗口 [21:00:00.000, 21:01:00.000]，左闭右闭）：\n3500×10(竞价)、3501×5、3502×5 → o=3500 h=3502 l=3500 c=3502 v=20 n=3 av=10\n- 21:01:00.001 属于 21:02 bar：3503×5 → v=5 n=1",
+  "messages": [
+    {
+      "ts": "2026-03-02 21:00:00.000",
+      "kind": "trade",
+      "price": 3500.0,
+      "volume": 10,
+      "side": "B",
+      "auction": true,
+      "trade_id": "",
+      "ref_trade_id": "",
+      "new_price": null,
+      "new_volume": null,
+      "new_ts": null,
+      "delete": false
+    },
+    {
+      "ts": "2026-03-02 21:00:30.000",
+      "kind": "trade",
+      "price": 3501.0,
+      "volume": 5,
+      "side": "B",
+      "auction": false,
+      "trade_id": "",
+      "ref_trade_id": "",
+      "new_price": null,
+      "new_volume": null,
+      "new_ts": null,
+      "delete": false
+    },
+    {
+      "ts": "2026-03-02 21:01:00.000",
+      "kind": "trade",
+      "price": 3502.0,
+      "volume": 5,
+      "side": "B",
+      "auction": false,
+      "trade_id": "",
+      "ref_trade_id": "",
+      "new_price": null,
+      "new_volume": null,
+      "new_ts": null,
+      "delete": false
+    },
+    {
+      "ts": "2026-03-02 21:01:00.001",
+      "kind": "trade",
+      "price": 3503.0,
+      "volume": 5,
+      "side": "B",
+      "auction": false,
+      "trade_id": "",
+      "ref_trade_id": "",
+      "new_price": null,
+      "new_volume": null,
+      "new_ts": null,
+      "delete": false
+    }
+  ],
+  "expected": [
+    {
+      "t": 1772571660000,
+      "hm": "21:01",
+      "o": 3500.0,
+      "h": 3502.0,
+      "l": 3500.0,
+      "c": 3502.0,
+      "v": 20,
+      "to": 0.0,
+      "n": 3,
+      "bvol": 20,
+      "svol": 0,
+      "av": 10
+    },
+    {
+      "t": 1772571720000,
+      "hm": "21:02",
+      "o": 3503.0,
+      "h": 3503.0,
+      "l": 3503.0,
+      "c": 3503.0,
+      "v": 5,
+      "to": 0.0,
+      "n": 1,
+      "bvol": 5,
+      "svol": 0,
+      "av": 0
+    }
+  ],
+  "prev_close": 3490.0,
+  "focus": [
+    "21:01",
+    "21:02"
+  ]
+}

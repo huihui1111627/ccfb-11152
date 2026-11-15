@@ -1,0 +1,1236 @@
+{
+  "dataset": "sim-2026-02-27-2026-03-06",
+  "generated_at": "2026-03-06T16:00:00+08:00",
+  "engine_version": "0.1.0",
+  "calendar": {
+    "trading_days": [
+      "2026-02-27",
+      "2026-03-02",
+      "2026-03-03",
+      "2026-03-04",
+      "2026-03-05",
+      "2026-03-06"
+    ],
+    "holidays": [
+      "2026-02-28",
+      "2026-03-01"
+    ]
+  },
+  "instruments": [
+    {
+      "symbol": "600000.SH",
+      "name": "浦发银行",
+      "exchange": "SSE",
+      "asset": "Equity",
+      "product": "600000",
+      "price_tick": 0.01,
+      "price_decimals": 2,
+      "multiplier": 1.0,
+      "lot_size": 100,
+      "limit_pct": 0.1,
+      "schedule_id": "equity_cn",
+      "sources": [
+        "A",
+        "B"
+      ],
+      "contracts": null,
+      "listed": null,
+      "expiry": null
+    },
+    {
+      "symbol": "000001.SZ",
+      "name": "平安银行",
+      "exchange": "SZSE",
+      "asset": "Equity",
+      "product": "000001",
+      "price_tick": 0.01,
+      "price_decimals": 2,
+      "multiplier": 1.0,
+      "lot_size": 100,
+      "limit_pct": 0.1,
+      "schedule_id": "equity_cn",
+      "sources": [
+        "A",
+        "B"
+      ],
+      "contracts": null,
+      "listed": null,
+      "expiry": null
+    },
+    {
+      "symbol": "rb2601",
+      "name": "螺纹钢2601",
+      "exchange": "SHFE",
+      "asset": "Future",
+      "product": "rb",
+      "price_tick": 1.0,
+      "price_decimals": 0,
+      "multiplier": 10.0,
+      "lot_size": 1,
+      "limit_pct": null,
+      "schedule_id": "future_night_2300",
+      "sources": [
+        "A",
+        "B"
+      ],
+      "contracts": [
+        "rb2601",
+        "rb2605",
+        "rb2610"
+      ],
+      "listed": "2025-01-15",
+      "expiry": "2026-01-15"
+    },
+    {
+      "symbol": "au2602",
+      "name": "黄金2602",
+      "exchange": "SHFE",
+      "asset": "Future",
+      "product": "au",
+      "price_tick": 0.02,
+      "price_decimals": 2,
+      "multiplier": 1000.0,
+      "lot_size": 1,
+      "limit_pct": null,
+      "schedule_id": "future_night_0230",
+      "sources": [
+        "A",
+        "B"
+      ],
+      "contracts": [
+        "au2602"
+      ],
+      "listed": null,
+      "expiry": null
+    },
+    {
+      "symbol": "IF2603",
+      "name": "沪深300股指2603",
+      "exchange": "CFFEX",
+      "asset": "Future",
+      "product": "IF",
+      "price_tick": 0.2,
+      "price_decimals": 1,
+      "multiplier": 300.0,
+      "lot_size": 1,
+      "limit_pct": null,
+      "schedule_id": "index_future",
+      "sources": [
+        "A",
+        "B"
+      ],
+      "contracts": [
+        "IF2603"
+      ],
+      "listed": null,
+      "expiry": null
+    },
+    {
+      "symbol": "rb2605",
+      "name": "螺纹钢2605",
+      "exchange": "SHFE",
+      "asset": "Future",
+      "product": "rb",
+      "price_tick": 1.0,
+      "price_decimals": 0,
+      "multiplier": 10.0,
+      "lot_size": 1,
+      "limit_pct": null,
+      "schedule_id": "future_night_2300",
+      "sources": [
+        "A",
+        "B"
+      ],
+      "contracts": [
+        "rb2601",
+        "rb2605",
+        "rb2610"
+      ],
+      "listed": null,
+      "expiry": null
+    },
+    {
+      "symbol": "rb2610",
+      "name": "螺纹钢2610",
+      "exchange": "SHFE",
+      "asset": "Future",
+      "product": "rb",
+      "price_tick": 1.0,
+      "price_decimals": 0,
+      "multiplier": 10.0,
+      "lot_size": 1,
+      "limit_pct": null,
+      "schedule_id": "future_night_2300",
+      "sources": [
+        "A",
+        "B"
+      ],
+      "contracts": [
+        "rb2601",
+        "rb2605",
+        "rb2610"
+      ],
+      "listed": null,
+      "expiry": null
+    }
+  ],
+  "corporate_actions": [
+    [
+      "600000.SH",
+      {
+        "ex_date": "2026-03-04",
+        "cash_div": 0.35,
+        "bonus": 0.3,
+        "rights": 0.1,
+        "rights_price": 5.0,
+        "prev_close": 9.58,
+        "note": "10派3.5元送3股配1股@5元"
+      }
+    ],
+    [
+      "000001.SZ",
+      {
+        "ex_date": "2026-03-05",
+        "cash_div": 0.2,
+        "bonus": 0.0,
+        "rights": 0.0,
+        "rights_price": 0.0,
+        "prev_close": 10.83,
+        "note": "10派2元"
+      }
+    ]
+  ],
+  "products": [
+    {
+      "code": "rb",
+      "name": "螺纹钢",
+      "exchange": "SHFE",
+      "asset": "Future",
+      "price_tick": 1.0,
+      "multiplier": 10.0,
+      "price_decimals": 0,
+      "schedule_id": "future_night_2300",
+      "contracts": [
+        "rb2601",
+        "rb2605",
+        "rb2610"
+      ]
+    }
+  ],
+  "halts": [
+    {
+      "symbol": "600000.SH",
+      "trade_date": "2026-03-03",
+      "start": 1772533200000,
+      "end": 1772534999000,
+      "label": "临时停牌（波动异常）"
+    }
+  ],
+  "prev_closes": [
+    {
+      "symbol": "600000.SH",
+      "trade_date": "2026-02-27",
+      "price": 10.0
+    },
+    {
+      "symbol": "600000.SH",
+      "trade_date": "2026-03-02",
+      "price": 9.84
+    },
+    {
+      "symbol": "600000.SH",
+      "trade_date": "2026-03-03",
+      "price": 9.84
+    },
+    {
+      "symbol": "600000.SH",
+      "trade_date": "2026-03-04",
+      "price": 9.58
+    },
+    {
+      "symbol": "600000.SH",
+      "trade_date": "2026-03-05",
+      "price": 8.63
+    },
+    {
+      "symbol": "600000.SH",
+      "trade_date": "2026-03-06",
+      "price": 8.31
+    },
+    {
+      "symbol": "000001.SZ",
+      "trade_date": "2026-02-27",
+      "price": 12.0
+    },
+    {
+      "symbol": "000001.SZ",
+      "trade_date": "2026-03-02",
+      "price": 11.68
+    },
+    {
+      "symbol": "000001.SZ",
+      "trade_date": "2026-03-03",
+      "price": 11.8
+    },
+    {
+      "symbol": "000001.SZ",
+      "trade_date": "2026-03-04",
+      "price": 11.54
+    },
+    {
+      "symbol": "000001.SZ",
+      "trade_date": "2026-03-05",
+      "price": 10.83
+    },
+    {
+      "symbol": "000001.SZ",
+      "trade_date": "2026-03-06",
+      "price": 10.23
+    },
+    {
+      "symbol": "rb2601",
+      "trade_date": "2026-02-27",
+      "price": 3500.0
+    },
+    {
+      "symbol": "rb2601",
+      "trade_date": "2026-03-02",
+      "price": 3524.0
+    },
+    {
+      "symbol": "rb2601",
+      "trade_date": "2026-03-03",
+      "price": 3615.0
+    },
+    {
+      "symbol": "rb2601",
+      "trade_date": "2026-03-04",
+      "price": 3712.0
+    },
+    {
+      "symbol": "rb2601",
+      "trade_date": "2026-03-05",
+      "price": 3695.0
+    },
+    {
+      "symbol": "rb2601",
+      "trade_date": "2026-03-06",
+      "price": 3686.0
+    },
+    {
+      "symbol": "au2602",
+      "trade_date": "2026-02-27",
+      "price": 520.0
+    },
+    {
+      "symbol": "au2602",
+      "trade_date": "2026-03-02",
+      "price": 525.96
+    },
+    {
+      "symbol": "au2602",
+      "trade_date": "2026-03-03",
+      "price": 527.06
+    },
+    {
+      "symbol": "au2602",
+      "trade_date": "2026-03-04",
+      "price": 535.38
+    },
+    {
+      "symbol": "au2602",
+      "trade_date": "2026-03-05",
+      "price": 535.54
+    },
+    {
+      "symbol": "au2602",
+      "trade_date": "2026-03-06",
+      "price": 524.72
+    },
+    {
+      "symbol": "IF2603",
+      "trade_date": "2026-02-27",
+      "price": 3800.0
+    },
+    {
+      "symbol": "IF2603",
+      "trade_date": "2026-03-02",
+      "price": 3763.8
+    },
+    {
+      "symbol": "IF2603",
+      "trade_date": "2026-03-03",
+      "price": 3747.8
+    },
+    {
+      "symbol": "IF2603",
+      "trade_date": "2026-03-04",
+      "price": 3727.4
+    },
+    {
+      "symbol": "IF2603",
+      "trade_date": "2026-03-05",
+      "price": 3660.8
+    },
+    {
+      "symbol": "IF2603",
+      "trade_date": "2026-03-06",
+      "price": 3657.6
+    },
+    {
+      "symbol": "rb2605",
+      "trade_date": "2026-02-27",
+      "price": 3560.0
+    },
+    {
+      "symbol": "rb2605",
+      "trade_date": "2026-03-02",
+      "price": 3542.0
+    },
+    {
+      "symbol": "rb2605",
+      "trade_date": "2026-03-03",
+      "price": 3566.0
+    },
+    {
+      "symbol": "rb2605",
+      "trade_date": "2026-03-04",
+      "price": 3574.0
+    },
+    {
+      "symbol": "rb2605",
+      "trade_date": "2026-03-05",
+      "price": 3613.0
+    },
+    {
+      "symbol": "rb2605",
+      "trade_date": "2026-03-06",
+      "price": 3620.0
+    },
+    {
+      "symbol": "rb2610",
+      "trade_date": "2026-02-27",
+      "price": 3600.0
+    },
+    {
+      "symbol": "rb2610",
+      "trade_date": "2026-03-02",
+      "price": 3582.0
+    },
+    {
+      "symbol": "rb2610",
+      "trade_date": "2026-03-03",
+      "price": 3605.0
+    },
+    {
+      "symbol": "rb2610",
+      "trade_date": "2026-03-04",
+      "price": 3614.0
+    },
+    {
+      "symbol": "rb2610",
+      "trade_date": "2026-03-05",
+      "price": 3605.0
+    },
+    {
+      "symbol": "rb2610",
+      "trade_date": "2026-03-06",
+      "price": 3563.0
+    }
+  ],
+  "continuous": [],
+  "injected_anomalies": [
+    {
+      "kind": "price_jump",
+      "symbol": "rb2610",
+      "source": "A",
+      "trade_id": "rb2610-002370",
+      "seq": 15885,
+      "ts": 1772530020001,
+      "note": "成交价 3594.0000 → 3882.0000（+8%）"
+    },
+    {
+      "kind": "volume_spike",
+      "symbol": "rb2610",
+      "source": "A",
+      "trade_id": "rb2610-004881",
+      "seq": 23407,
+      "ts": 1772571980003,
+      "note": "成交量 15 → 50000"
+    },
+    {
+      "kind": "invalid_tick",
+      "symbol": "rb2610",
+      "source": "A",
+      "trade_id": "rb2610-001047",
+      "seq": 8151,
+      "ts": 1772445020001,
+      "note": "成交价加 0.0100，不再是 tick 1.00 的整数倍"
+    },
+    {
+      "kind": "out_of_session",
+      "symbol": "rb2610",
+      "source": "A",
+      "trade_id": "rb2610-000699",
+      "seq": 7802,
+      "ts": 1772367300000,
+      "note": "成交时间 21:02:00.000 → 12:15:00（午休，非交易时段）"
+    },
+    {
+      "kind": "trade_cancel",
+      "symbol": "rb2610",
+      "source": "A",
+      "trade_id": "rb2610-000524",
+      "seq": 0,
+      "ts": 1772199125000,
+      "note": "撤销成交 rb2610-000524"
+    },
+    {
+      "kind": "trade_correct",
+      "symbol": "rb2610",
+      "source": "A",
+      "trade_id": "rb2610-000466",
+      "seq": 0,
+      "ts": 1772190148000,
+      "note": "成交 rb2610-000466 价格更正 +2.00"
+    },
+    {
+      "kind": "order_reject",
+      "symbol": "rb2610",
+      "source": "A",
+      "trade_id": null,
+      "seq": 0,
+      "ts": 1772188883000,
+      "note": "委托 Some(\"O000419\") 废单"
+    },
+    {
+      "kind": "cancel_unknown",
+      "symbol": "rb2610",
+      "source": "A",
+      "trade_id": "rb2610-NOSUCH",
+      "seq": 0,
+      "ts": 1772809201000,
+      "note": "撤单引用不存在的成交"
+    },
+    {
+      "kind": "timestamp_inversion",
+      "symbol": "rb2610",
+      "source": "A",
+      "trade_id": "rb2610-000599",
+      "seq": 602,
+      "ts": 1772201440000,
+      "note": "成交时间 14:11:40.000 回拨 60s 到 14:10:40.000，早于同源前一条消息"
+    },
+    {
+      "kind": "duplicate_seq",
+      "symbol": "rb2610",
+      "source": "A",
+      "trade_id": "rb2610-004880",
+      "seq": 23409,
+      "ts": 1772571960000,
+      "note": "同源同序号推送两次，第二次成交量 +100（内容不同）"
+    },
+    {
+      "kind": "seq_gap",
+      "symbol": "rb2610",
+      "source": "A",
+      "trade_id": "rb2610-002090",
+      "seq": 15608,
+      "ts": 1772485200000,
+      "note": "删除源 A 序号 15608 的成交，制造真实的序号空号"
+    },
+    {
+      "kind": "source_conflict",
+      "symbol": "rb2610",
+      "source": "B",
+      "trade_id": "rb2610-004877",
+      "seq": 23401,
+      "ts": 1772571880000,
+      "note": "B 源成交价 3630.0000 与 A 源不一致（+2 tick）"
+    },
+    {
+      "kind": "price_jump",
+      "symbol": "rb2601",
+      "source": "A",
+      "trade_id": "rb2601-022544",
+      "seq": 30222,
+      "ts": 1772529732634,
+      "note": "成交价 3631.0000 → 3921.0000（+8%）"
+    },
+    {
+      "kind": "volume_spike",
+      "symbol": "rb2601",
+      "source": "A",
+      "trade_id": "rb2601-046307",
+      "seq": 41329,
+      "ts": 1772571955386,
+      "note": "成交量 22 → 50000"
+    },
+    {
+      "kind": "invalid_tick",
+      "symbol": "rb2601",
+      "source": "A",
+      "trade_id": "rb2601-010027",
+      "seq": 17112,
+      "ts": 1772445528002,
+      "note": "成交价加 0.0100，不再是 tick 1.00 的整数倍"
+    },
+    {
+      "kind": "out_of_session",
+      "symbol": "rb2601",
+      "source": "A",
+      "trade_id": "rb2601-006685",
+      "seq": 13776,
+      "ts": 1772367300000,
+      "note": "成交时间 21:09:08.571 → 12:15:00（午休，非交易时段）"
+    },
+    {
+      "kind": "trade_cancel",
+      "symbol": "rb2601",
+      "source": "A",
+      "trade_id": "rb2601-005012",
+      "seq": 0,
+      "ts": 1772199718793,
+      "note": "撤销成交 rb2601-005012"
+    },
+    {
+      "kind": "trade_correct",
+      "symbol": "rb2601",
+      "source": "A",
+      "trade_id": "rb2601-004455",
+      "seq": 0,
+      "ts": 1772190824000,
+      "note": "成交 rb2601-004455 价格更正 +2.00"
+    },
+    {
+      "kind": "order_reject",
+      "symbol": "rb2601",
+      "source": "A",
+      "trade_id": null,
+      "seq": 0,
+      "ts": 1772189293588,
+      "note": "委托 Some(\"O004007\") 废单"
+    },
+    {
+      "kind": "cancel_unknown",
+      "symbol": "rb2601",
+      "source": "A",
+      "trade_id": "rb2601-NOSUCH",
+      "seq": 0,
+      "ts": 1772809201000,
+      "note": "撤单引用不存在的成交"
+    },
+    {
+      "kind": "timestamp_inversion",
+      "symbol": "rb2601",
+      "source": "A",
+      "trade_id": "rb2601-005728",
+      "seq": 5722,
+      "ts": 1772201956800,
+      "note": "成交时间 14:20:16.800 回拨 60s 到 14:19:16.800，早于同源前一条消息"
+    },
+    {
+      "kind": "duplicate_seq",
+      "symbol": "rb2601",
+      "source": "A",
+      "trade_id": "rb2601-046306",
+      "seq": 41331,
+      "ts": 1772571950769,
+      "note": "同源同序号推送两次，第二次成交量 +100（内容不同）"
+    },
+    {
+      "kind": "seq_gap",
+      "symbol": "rb2601",
+      "source": "A",
+      "trade_id": "rb2601-019870",
+      "seq": 27555,
+      "ts": 1772485632857,
+      "note": "删除源 A 序号 27555 的成交，制造真实的序号空号"
+    },
+    {
+      "kind": "source_conflict",
+      "symbol": "rb2601",
+      "source": "B",
+      "trade_id": "rb2601-046314",
+      "seq": 41302,
+      "ts": 1772571985714,
+      "note": "B 源成交价 3711.0000 与 A 源不一致（+2 tick）"
+    },
+    {
+      "kind": "price_jump",
+      "symbol": "600000.SH",
+      "source": "A",
+      "trade_id": "600000SH-015767",
+      "seq": 20949,
+      "ts": 1772536863334,
+      "note": "成交价 9.6600 → 10.4300（+8%）"
+    },
+    {
+      "kind": "volume_spike",
+      "symbol": "600000.SH",
+      "source": "A",
+      "trade_id": "600000SH-032798",
+      "seq": 28690,
+      "ts": 1772617662503,
+      "note": "成交量 2000 → 5000000"
+    },
+    {
+      "kind": "bad_volume",
+      "symbol": "600000.SH",
+      "source": "A",
+      "trade_id": "600000SH-005483",
+      "seq": 10475,
+      "ts": 1772445640002,
+      "note": "成交量改为 150 股（非 100 股整数倍）"
+    },
+    {
+      "kind": "invalid_tick",
+      "symbol": "600000.SH",
+      "source": "A",
+      "trade_id": "600000SH-006855",
+      "seq": 11842,
+      "ts": 1772449797503,
+      "note": "成交价加 0.0001，不再是 tick 0.01 的整数倍"
+    },
+    {
+      "kind": "limit_breach",
+      "symbol": "600000.SH",
+      "source": "A",
+      "trade_id": "600000SH-035535",
+      "seq": 31424,
+      "ts": 1772631171114,
+      "note": "成交价 8.66 → 10.79（超过涨停价 9.48）"
+    },
+    {
+      "kind": "out_of_session",
+      "symbol": "600000.SH",
+      "source": "A",
+      "trade_id": "600000SH-004569",
+      "seq": 4560,
+      "ts": 1772194500000,
+      "note": "成交时间 14:45:57.500 → 12:15:00（午休，非交易时段）"
+    },
+    {
+      "kind": "trade_cancel",
+      "symbol": "600000.SH",
+      "source": "A",
+      "trade_id": "600000SH-003427",
+      "seq": 0,
+      "ts": 1772200136428,
+      "note": "撤销成交 600000SH-003427"
+    },
+    {
+      "kind": "trade_correct",
+      "symbol": "600000.SH",
+      "source": "A",
+      "trade_id": "600000SH-003047",
+      "seq": 0,
+      "ts": 1772199138000,
+      "note": "成交 600000SH-003047 价格更正 +0.02"
+    },
+    {
+      "kind": "order_reject",
+      "symbol": "600000.SH",
+      "source": "A",
+      "trade_id": null,
+      "seq": 0,
+      "ts": 1772198100272,
+      "note": "委托 Some(\"O002741\") 废单"
+    },
+    {
+      "kind": "cancel_unknown",
+      "symbol": "600000.SH",
+      "source": "A",
+      "trade_id": "600000SH-NOSUCH",
+      "seq": 0,
+      "ts": 1772809201000,
+      "note": "撤单引用不存在的成交"
+    },
+    {
+      "kind": "timestamp_inversion",
+      "symbol": "600000.SH",
+      "source": "A",
+      "trade_id": "600000SH-003915",
+      "seq": 3911,
+      "ts": 1772201620000,
+      "note": "成交时间 14:14:40.000 回拨 60s 到 14:13:40.000，早于同源前一条消息"
+    },
+    {
+      "kind": "duplicate_seq",
+      "symbol": "600000.SH",
+      "source": "A",
+      "trade_id": "600000SH-032797",
+      "seq": 28692,
+      "ts": 1772617660000,
+      "note": "同源同序号推送两次，第二次成交量 +100（内容不同）"
+    },
+    {
+      "kind": "seq_gap",
+      "symbol": "600000.SH",
+      "source": "A",
+      "trade_id": "600000SH-009140",
+      "seq": 14125,
+      "ts": 1772462314285,
+      "note": "删除源 A 序号 14125 的成交，制造真实的序号空号"
+    },
+    {
+      "kind": "source_conflict",
+      "symbol": "600000.SH",
+      "source": "B",
+      "trade_id": "600000SH-032798",
+      "seq": 28674,
+      "ts": 1772617662500,
+      "note": "B 源成交价 8.7500 与 A 源不一致（+2 tick）"
+    },
+    {
+      "kind": "price_jump",
+      "symbol": "000001.SZ",
+      "source": "A",
+      "trade_id": "000001SZ-015502",
+      "seq": 20961,
+      "ts": 1772535875174,
+      "note": "成交价 11.7800 → 12.7200（+8%）"
+    },
+    {
+      "kind": "volume_spike",
+      "symbol": "000001.SZ",
+      "source": "A",
+      "trade_id": "000001SZ-031823",
+      "seq": 28704,
+      "ts": 1772616868238,
+      "note": "成交量 1100 → 5000000"
+    },
+    {
+      "kind": "bad_volume",
+      "symbol": "000001.SZ",
+      "source": "A",
+      "trade_id": "000001SZ-005487",
+      "seq": 10481,
+      "ts": 1772446920001,
+      "note": "成交量改为 150 股（非 100 股整数倍）"
+    },
+    {
+      "kind": "invalid_tick",
+      "symbol": "000001.SZ",
+      "source": "A",
+      "trade_id": "000001SZ-006857",
+      "seq": 11850,
+      "ts": 1772450887061,
+      "note": "成交价加 0.0001，不再是 tick 0.01 的整数倍"
+    },
+    {
+      "kind": "limit_breach",
+      "symbol": "000001.SZ",
+      "source": "A",
+      "trade_id": "000001SZ-034564",
+      "seq": 31441,
+      "ts": 1772630616429,
+      "note": "成交价 11.20 → 14.46（超过涨停价 12.71）"
+    },
+    {
+      "kind": "out_of_session",
+      "symbol": "000001.SZ",
+      "source": "A",
+      "trade_id": "000001SZ-004572",
+      "seq": 9568,
+      "ts": 1772453700000,
+      "note": "成交时间 09:31:41.052 → 12:15:00（午休，非交易时段）"
+    },
+    {
+      "kind": "trade_cancel",
+      "symbol": "000001.SZ",
+      "source": "A",
+      "trade_id": "000001SZ-003431",
+      "seq": 0,
+      "ts": 1772200670000,
+      "note": "撤销成交 000001SZ-003431"
+    },
+    {
+      "kind": "trade_correct",
+      "symbol": "000001.SZ",
+      "source": "A",
+      "trade_id": "000001SZ-003049",
+      "seq": 0,
+      "ts": 1772199415368,
+      "note": "成交 000001SZ-003049 价格更正 +0.02"
+    },
+    {
+      "kind": "order_reject",
+      "symbol": "000001.SZ",
+      "source": "A",
+      "trade_id": null,
+      "seq": 0,
+      "ts": 1772198565857,
+      "note": "委托 Some(\"O002745\") 废单"
+    },
+    {
+      "kind": "cancel_unknown",
+      "symbol": "000001.SZ",
+      "source": "A",
+      "trade_id": "000001SZ-NOSUCH",
+      "seq": 0,
+      "ts": 1772809201000,
+      "note": "撤单引用不存在的成交"
+    },
+    {
+      "kind": "timestamp_inversion",
+      "symbol": "000001.SZ",
+      "source": "A",
+      "trade_id": "000001SZ-003920",
+      "seq": 3916,
+      "ts": 1772202160800,
+      "note": "成交时间 14:23:40.800 回拨 60s 到 14:22:40.800，早于同源前一条消息"
+    },
+    {
+      "kind": "duplicate_seq",
+      "symbol": "000001.SZ",
+      "source": "A",
+      "trade_id": "000001SZ-031822",
+      "seq": 28706,
+      "ts": 1772616864705,
+      "note": "同源同序号推送两次，第二次成交量 +100（内容不同）"
+    },
+    {
+      "kind": "seq_gap",
+      "symbol": "000001.SZ",
+      "source": "A",
+      "trade_id": "000001SZ-013671",
+      "seq": 19139,
+      "ts": 1772530427142,
+      "note": "删除源 A 序号 19139 的成交，制造真实的序号空号"
+    },
+    {
+      "kind": "source_conflict",
+      "symbol": "000001.SZ",
+      "source": "B",
+      "trade_id": "000001SZ-031821",
+      "seq": 28683,
+      "ts": 1772616861176,
+      "note": "B 源成交价 11.5300 与 A 源不一致（+2 tick）"
+    },
+    {
+      "kind": "price_jump",
+      "symbol": "au2602",
+      "source": "A",
+      "trade_id": "au2602-036372",
+      "seq": 48264,
+      "ts": 1772499268801,
+      "note": "成交价 521.0000 → 562.6800（+8%）"
+    },
+    {
+      "kind": "volume_spike",
+      "symbol": "au2602",
+      "source": "A",
+      "trade_id": "au2602-074737",
+      "seq": 65982,
+      "ts": 1772572266002,
+      "note": "成交量 31 → 62000"
+    },
+    {
+      "kind": "invalid_tick",
+      "symbol": "au2602",
+      "source": "A",
+      "trade_id": "au2602-016064",
+      "seq": 27339,
+      "ts": 1772415867273,
+      "note": "成交价加 0.0002，不再是 tick 0.02 的整数倍"
+    },
+    {
+      "kind": "out_of_session",
+      "symbol": "au2602",
+      "source": "A",
+      "trade_id": "au2602-010707",
+      "seq": 21994,
+      "ts": 1772367300000,
+      "note": "成交时间 21:01:30.000 → 12:15:00（午休，非交易时段）"
+    },
+    {
+      "kind": "trade_cancel",
+      "symbol": "au2602",
+      "source": "A",
+      "trade_id": "au2602-008027",
+      "seq": 0,
+      "ts": 1772188749615,
+      "note": "撤销成交 au2602-008027"
+    },
+    {
+      "kind": "trade_correct",
+      "symbol": "au2602",
+      "source": "A",
+      "trade_id": "au2602-007136",
+      "seq": 0,
+      "ts": 1772184973000,
+      "note": "成交 au2602-007136 价格更正 +0.04"
+    },
+    {
+      "kind": "order_reject",
+      "symbol": "au2602",
+      "source": "A",
+      "trade_id": null,
+      "seq": 0,
+      "ts": 1772159373000,
+      "note": "委托 Some(\"O006423\") 废单"
+    },
+    {
+      "kind": "cancel_unknown",
+      "symbol": "au2602",
+      "source": "A",
+      "trade_id": "au2602-NOSUCH",
+      "seq": 0,
+      "ts": 1772809201000,
+      "note": "撤单引用不存在的成交"
+    },
+    {
+      "kind": "timestamp_inversion",
+      "symbol": "au2602",
+      "source": "A",
+      "trade_id": "au2602-009175",
+      "seq": 9166,
+      "ts": 1772199462222,
+      "note": "成交时间 13:38:42.222 回拨 60s 到 13:37:42.222，早于同源前一条消息"
+    },
+    {
+      "kind": "duplicate_seq",
+      "symbol": "au2602",
+      "source": "A",
+      "trade_id": "au2602-074736",
+      "seq": 65984,
+      "ts": 1772572263000,
+      "note": "同源同序号推送两次，第二次成交量 +100（内容不同）"
+    },
+    {
+      "kind": "seq_gap",
+      "symbol": "au2602",
+      "source": "A",
+      "trade_id": "au2602-032087",
+      "seq": 43991,
+      "ts": 1772485676000,
+      "note": "删除源 A 序号 43991 的成交，制造真实的序号空号"
+    },
+    {
+      "kind": "source_conflict",
+      "symbol": "au2602",
+      "source": "B",
+      "trade_id": "au2602-074741",
+      "seq": 65947,
+      "ts": 1772572278000,
+      "note": "B 源成交价 535.4600 与 A 源不一致（+2 tick）"
+    },
+    {
+      "kind": "price_jump",
+      "symbol": "IF2603",
+      "source": "A",
+      "trade_id": "IF2603-015954",
+      "seq": 20860,
+      "ts": 1772536182355,
+      "note": "成交价 3719.0000 → 4017.0000（+8%）"
+    },
+    {
+      "kind": "volume_spike",
+      "symbol": "IF2603",
+      "source": "A",
+      "trade_id": "IF2603-032788",
+      "seq": 28476,
+      "ts": 1772616802108,
+      "note": "成交量 12 → 50000"
+    },
+    {
+      "kind": "invalid_tick",
+      "symbol": "IF2603",
+      "source": "A",
+      "trade_id": "IF2603-007049",
+      "seq": 11837,
+      "ts": 1772450914286,
+      "note": "成交价加 0.0100，不再是 tick 1.00 的整数倍"
+    },
+    {
+      "kind": "out_of_session",
+      "symbol": "IF2603",
+      "source": "A",
+      "trade_id": "IF2603-004702",
+      "seq": 9492,
+      "ts": 1772453700000,
+      "note": "成交时间 09:31:16.153 → 12:15:00（午休，非交易时段）"
+    },
+    {
+      "kind": "trade_cancel",
+      "symbol": "IF2603",
+      "source": "A",
+      "trade_id": "IF2603-003529",
+      "seq": 0,
+      "ts": 1772200973750,
+      "note": "撤销成交 IF2603-003529"
+    },
+    {
+      "kind": "trade_correct",
+      "symbol": "IF2603",
+      "source": "A",
+      "trade_id": "IF2603-003137",
+      "seq": 0,
+      "ts": 1772199740000,
+      "note": "成交 IF2603-003137 价格更正 +2.00"
+    },
+    {
+      "kind": "order_reject",
+      "symbol": "IF2603",
+      "source": "A",
+      "trade_id": null,
+      "seq": 0,
+      "ts": 1772198813400,
+      "note": "委托 Some(\"O002823\") 废单"
+    },
+    {
+      "kind": "cancel_unknown",
+      "symbol": "IF2603",
+      "source": "A",
+      "trade_id": "IF2603-NOSUCH",
+      "seq": 0,
+      "ts": 1772809201000,
+      "note": "撤单引用不存在的成交"
+    },
+    {
+      "kind": "timestamp_inversion",
+      "symbol": "IF2603",
+      "source": "A",
+      "trade_id": "IF2603-004032",
+      "seq": 4023,
+      "ts": 1772202506666,
+      "note": "成交时间 14:29:26.666 回拨 60s 到 14:28:26.666，早于同源前一条消息"
+    },
+    {
+      "kind": "duplicate_seq",
+      "symbol": "IF2603",
+      "source": "A",
+      "trade_id": "IF2603-032788",
+      "seq": 28479,
+      "ts": 1772616802105,
+      "note": "同源同序号推送两次，第二次成交量 +100（内容不同）"
+    },
+    {
+      "kind": "seq_gap",
+      "symbol": "IF2603",
+      "source": "A",
+      "trade_id": "IF2603-014079",
+      "seq": 18988,
+      "ts": 1772530389473,
+      "note": "删除源 A 序号 18988 的成交，制造真实的序号空号"
+    },
+    {
+      "kind": "source_conflict",
+      "symbol": "IF2603",
+      "source": "B",
+      "trade_id": "IF2603-032788",
+      "seq": 28465,
+      "ts": 1772616802105,
+      "note": "B 源成交价 3719.0000 与 A 源不一致（+2 tick）"
+    },
+    {
+      "kind": "price_jump",
+      "symbol": "rb2605",
+      "source": "A",
+      "trade_id": "rb2605-002332",
+      "seq": 15868,
+      "ts": 1772529740001,
+      "note": "成交价 3574.0000 → 3860.0000（+8%）"
+    },
+    {
+      "kind": "volume_spike",
+      "symbol": "rb2605",
+      "source": "A",
+      "trade_id": "rb2605-004780",
+      "seq": 23386,
+      "ts": 1772571810003,
+      "note": "成交量 27 → 54000"
+    },
+    {
+      "kind": "invalid_tick",
+      "symbol": "rb2605",
+      "source": "A",
+      "trade_id": "rb2605-001037",
+      "seq": 8141,
+      "ts": 1772445810003,
+      "note": "成交价加 0.0100，不再是 tick 1.00 的整数倍"
+    },
+    {
+      "kind": "out_of_session",
+      "symbol": "rb2605",
+      "source": "A",
+      "trade_id": "rb2605-000692",
+      "seq": 7795,
+      "ts": 1772367300000,
+      "note": "成交时间 21:09:00.000 → 12:15:00（午休，非交易时段）"
+    },
+    {
+      "kind": "trade_cancel",
+      "symbol": "rb2605",
+      "source": "A",
+      "trade_id": "rb2605-000519",
+      "seq": 0,
+      "ts": 1772199625000,
+      "note": "撤销成交 rb2605-000519"
+    },
+    {
+      "kind": "trade_correct",
+      "symbol": "rb2605",
+      "source": "A",
+      "trade_id": "rb2605-000461",
+      "seq": 0,
+      "ts": 1772190758000,
+      "note": "成交 rb2605-000461 价格更正 +2.00"
+    },
+    {
+      "kind": "order_reject",
+      "symbol": "rb2605",
+      "source": "A",
+      "trade_id": null,
+      "seq": 0,
+      "ts": 1772189283000,
+      "note": "委托 Some(\"O000415\") 废单"
+    },
+    {
+      "kind": "cancel_unknown",
+      "symbol": "rb2605",
+      "source": "A",
+      "trade_id": "rb2605-NOSUCH",
+      "seq": 0,
+      "ts": 1772809201000,
+      "note": "撤单引用不存在的成交"
+    },
+    {
+      "kind": "timestamp_inversion",
+      "symbol": "rb2605",
+      "source": "A",
+      "trade_id": "rb2605-000593",
+      "seq": 596,
+      "ts": 1772201820000,
+      "note": "成交时间 14:18:00.000 回拨 60s 到 14:17:00.000，早于同源前一条消息"
+    },
+    {
+      "kind": "duplicate_seq",
+      "symbol": "rb2605",
+      "source": "A",
+      "trade_id": "rb2605-004779",
+      "seq": 23388,
+      "ts": 1772571780000,
+      "note": "同源同序号推送两次，第二次成交量 +100（内容不同）"
+    },
+    {
+      "kind": "seq_gap",
+      "symbol": "rb2605",
+      "source": "A",
+      "trade_id": "rb2605-002056",
+      "seq": 15594,
+      "ts": 1772485820000,
+      "note": "删除源 A 序号 15594 的成交，制造真实的序号空号"
+    },
+    {
+      "kind": "source_conflict",
+      "symbol": "rb2605",
+      "source": "B",
+      "trade_id": "rb2605-004781",
+      "seq": 23385,
+      "ts": 1772571840000,
+      "note": "B 源成交价 3582.0000 与 A 源不一致（+2 tick）"
+    }
+  ]
+}
