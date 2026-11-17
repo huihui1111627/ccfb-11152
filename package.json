@@ -1,0 +1,22 @@
+{
+  "name": "slo-platform",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "充电桩运营 SLO 管理平台:可用性/延迟 SLO、MWMB 燃烧率告警、错误预算与发布闸门",
+  "scripts": {
+    "simulate": "tsx src/simulate/index.ts",
+    "evaluate": "tsx src/evaluation/index.ts",
+    "dev": "tsx watch src/api/server.ts",
+    "build:web": "tsc -p tsconfig.web.json",
+    "build": "tsc -p tsconfig.json && npm run build:web",
+    "start": "node --disable-warning=ExperimentalWarning dist/api/server.js",
+    "typecheck": "tsc -p tsconfig.json --noEmit && tsc -p tsconfig.web.json --noEmit",
+    "reset": "rm -f data/slo.db data/slo.db-* data/evaluation-report.json"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  }
+}

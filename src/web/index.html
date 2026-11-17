@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>充电桩 SLO 管理平台</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="logo">⚡</span>
+      <div>
+        <h1>充电桩运营 SLO 管理平台</h1>
+        <div class="sub" id="meta-line">加载中…</div>
+      </div>
+    </div>
+    <nav class="tabs" id="tabs">
+      <button data-tab="overview" class="tab active">总览</button>
+      <button data-tab="services" class="tab">服务目录</button>
+      <button data-tab="slos" class="tab">SLO 定义</button>
+      <button data-tab="budgets" class="tab">错误预算</button>
+      <button data-tab="alerts" class="tab">告警</button>
+      <button data-tab="gates" class="tab">发布闸门</button>
+      <button data-tab="graph" class="tab">依赖图</button>
+      <button data-tab="evaluation" class="tab">评估报告</button>
+    </nav>
+  </header>
+  <main id="app"><div class="loading">加载中…</div></main>
+  <div id="toast" class="toast hidden"></div>
+  <script type="module" src="/app.js"></script>
+</body>
+</html>
