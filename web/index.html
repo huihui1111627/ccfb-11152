@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SWIM 成员协议仿真台 · 巡演控制网</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">
+    <span class="dot"></span>
+    <h1>SWIM 成员协议仿真台</h1>
+    <span class="sub">巡演控制网 · 灯光 / 吊挂 / 票务闸机</span>
+  </div>
+  <div class="controls">
+    <label>场景
+      <select id="scenario"></select>
+    </label>
+    <label>种子
+      <input id="seed" type="number" value="1" min="1" max="99999">
+    </label>
+    <label>成员数
+      <input id="members" type="number" placeholder="300" min="8" max="600">
+    </label>
+    <label class="chk">
+      <input id="lifeguard" type="checkbox" checked> Lifeguard
+    </label>
+    <button id="run">运行</button>
+  </div>
+</header>
+
+<section class="summary" id="summary">
+  <div class="card"><div class="label">平均确认下线时间</div><div class="value" id="m-detect">–</div><div class="hint" id="m-detect-theory"></div></div>
+  <div class="card"><div class="label">误判确认次数</div><div class="value" id="m-fp">–</div><div class="hint" id="m-fp-theory"></div></div>
+  <div class="card"><div class="label">每台每秒消息数</div><div class="value" id="m-msgs">–</div><div class="hint" id="m-msgs-theory"></div></div>
+  <div class="card"><div class="label">加入 / 离开传播中位数</div><div class="value" id="m-diss">–</div><div class="hint">从变化发生到全网知晓</div></div>
+  <div class="card"><div class="label">分区期间确认</div><div class="value" id="m-iso">–</div><div class="hint">分区造成的“真”不可达,不计误判</div></div>
+</section>
+
+<nav class="tabs">
+  <button class="tab active" data-tab="members">成员表</button>
+  <button class="tab" data-tab="timeline">探测时间线</button>
+  <button class="tab" data-tab="events">怀疑与确认事件</button>
+  <button class="tab" data-tab="messages">消息负载与误判</button>
+</nav>
+
+<main>
+  <!-- 1. Member table -->
+  <section class="panel active" id="panel-members">
+    <div class="panel-head">
+      <h2>成员表</h2>
+      <div class="legend">
+        <span class="chip alive">存活</span>
+        <span class="chip suspect">怀疑</span>
+        <span class="chip dead">确认下线</span>
+        <span class="chip left">主动离开</span>
+        <span class="chip inject">注入故障</span>
+      </div>
+      <div class="toolbar">
+        <label>时刻 <input id="scrub-time" type="range" min="0" max="100" value="100"></label>
+        <span id="scrub-label" class="mono"></span>
+        <input id="member-filter" type="search" placeholder="按编号过滤">
+      </div>
+    </div>
+    <p class="caption">
+      选择某一台设备作为观察者,查看它眼中的其他成员状态。每一格代表一台设备:
+      颜色是该观察者当前的判断,角标为化身号(incarnation)。故障注入期间的实际状态以紫色描边标出。
+    </p>
+    <div class="observer-row">
+      <label>观察者
+        <select id="observer"></select>
+      </label>
+      <div class="counts" id="view-counts"></div>
+    </div>
+    <div id="member-grid" class="grid"></div>
+  </section>
+
+  <!-- 2. Probe timeline -->
+  <section class="panel" id="panel-timeline">
+    <div class="panel-head">
+      <h2>探测时间线</h2>
+      <div class="legend">
+        <span class="chip ok">直接应答</span>
+        <span class="chip indirect">间接应答</span>
+        <span class="chip timeout">超时</span>
+      </div>
+    </div>
+    <p class="caption">
+      每一行是该观察者的一轮协议周期:从发起探测起,横条延伸至本轮结束,标签为被探测成员编号。
+      超时后它会向若干成员发出 ping-req 代为间接探测,间接成功以黄色标出。
+    </p>
+    <div class="timeline-controls">
+      <label>窗口 <select id="tl-window">
+        <option value="10">最近 10 秒</option>
+        <option value="20" selected>最近 20 秒</option>
+        <option value="40">最近 40 秒</option>
+        <option value="120">整场</option>
+      </select></label>
+      <label>发起者 <select id="tl-focus"></select></label>
+    </div>
+    <canvas id="timeline-canvas" height="360"></canvas>
+    <div id="tl-tooltip" class="tooltip"></div>
+  </section>
+
+  <!-- 3. Suspicion & confirmation -->
+  <section class="panel" id="panel-events">
+    <div class="panel-head">
+      <h2>怀疑与确认事件</h2>
+      <div class="legend">
+        <span class="chip suspect">怀疑</span>
+        <span class="chip dead">确认下线</span>
+        <span class="chip ok">澄清 / 反驳</span>
+      </div>
+    </div>
+    <p class="caption">
+      怀疑计时器随独立确认人数按 Lifeguard 的对数曲线缩短;被怀疑者以更大的化身号反驳后计时器立即撤销。
+      右栏是按秒聚合的确认下线事件,红色为误判(目标实际仍在线)。
+    </p>
+    <div class="two-col">
+      <div>
+        <h3>怀疑计时器</h3>
+        <div id="suspicion-list" class="event-list"></div>
+      </div>
+      <div>
+        <h3>确认下线事件</h3>
+        <canvas id="confirm-chart" height="200"></canvas>
+        <div id="confirm-list" class="event-list compact"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Message payloads & false positives -->
+  <section class="panel" id="panel-messages">
+    <div class="panel-head">
+      <h2>消息负载与误判</h2>
+    </div>
+    <p class="caption">
+      报文大小有上限;捎带的消息放不下时优先装入传播次数少的条目,其余留待下一封。
+      下方展示随机抽样的数据报及其捎带内容,以及每秒消息量、丢包原因与误判构成。
+    </p>
+    <div class="two-col">
+      <div>
+        <h3>每秒消息量</h3>
+        <canvas id="traffic-chart" height="220"></canvas>
+        <h3>丢包与开销</h3>
+        <div id="drop-stats" class="stat-grid"></div>
+      </div>
+      <div>
+        <h3>数据报抽样(含捎带消息)</h3>
+        <div id="sample-list" class="sample-list"></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <span>确定性仿真:同一场景 + 同一种子 ⇒ 逐字节一致。核心指标附 SWIM 论文理论值对照。</span>
+  <span class="mono" id="digest"></span>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
