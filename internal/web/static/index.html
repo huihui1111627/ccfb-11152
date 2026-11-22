@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>容器资源规格推荐器 · 推荐过程可视化</title>
+<style>
+:root {
+  --bg: #0f1419; --panel: #1a212b; --panel2: #222c38; --line: #2d3a48;
+  --text: #e6edf3; --muted: #8b98a5; --accent: #4da3ff; --green: #3fb950;
+  --red: #f85149; --orange: #e3a008; --purple: #bc8cff; --cyan: #39c5cf;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; background: var(--bg); color: var(--text);
+  font-family: -apple-system, "PingFang SC", "Microsoft YaHei", "Segoe UI", sans-serif;
+  font-size: 14px; line-height: 1.5;
+}
+header {
+  padding: 16px 24px; border-bottom: 1px solid var(--line);
+  display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap;
+  background: linear-gradient(180deg, #16202b, #0f1419);
+}
+header h1 { font-size: 18px; margin: 0; }
+header .sub { color: var(--muted); font-size: 13px; }
+.stat-bar { display: flex; gap: 24px; flex-wrap: wrap; padding: 14px 24px; background: var(--panel); border-bottom: 1px solid var(--line); }
+.stat { min-width: 120px; }
+.stat .k { color: var(--muted); font-size: 12px; }
+.stat .v { font-size: 20px; font-weight: 600; margin-top: 2px; }
+.stat .v.good { color: var(--green); } .stat .v.bad { color: var(--red); } .stat .v.warn { color: var(--orange); }
+.layout { display: grid; grid-template-columns: 360px 1fr; gap: 16px; padding: 16px 24px; }
+@media (max-width: 1100px) { .layout { grid-template-columns: 1fr; } }
+.panel { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 14px; }
+.panel h2 { font-size: 14px; margin: 0 0 10px; color: var(--accent); }
+.list-wrap { max-height: 72vh; overflow-y: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+th, td { text-align: left; padding: 7px 8px; border-bottom: 1px solid var(--line); white-space: nowrap; }
+th { color: var(--muted); font-weight: 500; position: sticky; top: 0; background: var(--panel); }
+tr.container-row { cursor: pointer; }
+tr.container-row:hover { background: var(--panel2); }
+tr.container-row.active { background: #1d3055; }
+.badge { display: inline-block; padding: 1px 7px; border-radius: 10px; font-size: 11px; }
+.badge.stable { background: #14301a; color: var(--green); }
+.badge.daily { background: #102a43; color: var(--accent); }
+.badge.burst { background: #3a2c10; color: var(--orange); }
+.badge.oom { background: #3d1718; color: var(--red); }
+.oom-pill { color: var(--red); font-weight: 600; }
+.right { display: flex; flex-direction: column; gap: 16px; }
+.tabs { display: flex; gap: 6px; margin-bottom: 10px; flex-wrap: wrap; }
+.tab { padding: 5px 12px; border-radius: 7px; background: var(--panel2); color: var(--muted); cursor: pointer; border: 1px solid var(--line); font-size: 12.5px; }
+.tab.active { background: #1d3055; color: var(--text); border-color: var(--accent); }
+.chart-box { width: 100%; overflow-x: auto; }
+svg { display: block; }
+.axis text { fill: var(--muted); font-size: 10px; }
+.axis line, .axis path { stroke: var(--line); }
+.legend { display: flex; gap: 14px; flex-wrap: wrap; font-size: 12px; color: var(--muted); margin-top: 6px; }
+.legend i { display: inline-block; width: 14px; height: 3px; vertical-align: middle; margin-right: 4px; }
+.hist-bars rect { transition: opacity .15s; }
+.muted { color: var(--muted); }
+.oom-list { max-height: 280px; overflow-y: auto; font-size: 12.5px; }
+.oom-item { padding: 8px 10px; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; gap: 10px; }
+.oom-item.actual { border-left: 3px solid var(--red); }
+.oom-item.prevented { border-left: 3px solid var(--green); }
+select, input { background: var(--panel2); color: var(--text); border: 1px solid var(--line); border-radius: 6px; padding: 5px 8px; font-size: 12.5px; }
+.toolbar { display: flex; gap: 8px; align-items: center; margin-bottom: 10px; flex-wrap: wrap; }
+.note { font-size: 12px; color: var(--muted); margin-top: 8px; }
+.cap-flag { color: var(--orange); font-weight: 600; }
+.oom-flag { color: var(--red); font-weight: 600; }
+.empty { color: var(--muted); padding: 30px; text-align: center; }
+</style>
+</head>
+<body>
+<header>
+  <h1>🐾 容器资源规格推荐器</h1>
+  <span class="sub">指数分桶 · 时间衰减加权 · 分位数推荐 · 暴力校验一致</span>
+</header>
+
+<div class="stat-bar" id="statBar"><span class="muted">加载中…</span></div>
+
+<div class="layout">
+  <div class="panel">
+    <h2>容器列表</h2>
+    <div class="toolbar">
+      <select id="profileFilter">
+        <option value="">全部画像</option>
+        <option value="stable">平稳</option>
+        <option value="daily">按天周期</option>
+        <option value="burst">突发</option>
+        <option value="oom">内存被杀</option>
+      </select>
+      <select id="sortBy">
+        <option value="oom">按 OOM 次数</option>
+        <option value="name">按名称</option>
+        <option value="profile">按画像</option>
+      </select>
+    </div>
+    <div class="list-wrap">
+      <table>
+        <thead><tr><th>容器</th><th>画像</th><th>CPU 请求</th><th>内存请求</th><th>OOM</th></tr></thead>
+        <tbody id="containerRows"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="right">
+    <div class="panel">
+      <h2 id="detailTitle">选择一个容器查看推荐过程</h2>
+      <div class="tabs">
+        <div class="tab active" data-view="timeline">推荐值与上下限</div>
+        <div class="tab" data-view="histogram">用量直方图</div>
+        <div class="tab" data-view="oom">内存被杀事件</div>
+      </div>
+      <div id="detailBody"><div class="empty">← 从左侧列表选择容器</div></div>
+    </div>
+  </div>
+</div>
+
+<script src="/app.js"></script>
+</body>
+</html>
